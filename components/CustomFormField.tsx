@@ -1,8 +1,9 @@
 import { E164Number } from "libphonenumber-js/core";
 import Image from "next/image";
-import ReactDatePicker from "react-datepicker";
+import DatePicker from "react-datepicker";
 import { Control } from "react-hook-form";
 import PhoneInput from "react-phone-number-input";
+import "react-datepicker/dist/react-datepicker.css";
 
 import { Checkbox } from "./ui/checkbox";
 import {
@@ -79,7 +80,7 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
       return (
         <FormControl>
           <PhoneInput
-            defaultCountry="US"
+            defaultCountry="LK"
             placeholder={props.placeholder}
             international
             withCountryCallingCode
@@ -111,19 +112,19 @@ const RenderInput = ({ field, props }: { field: any; props: CustomProps }) => {
             src="/assets/icons/calendar.svg"
             height={24}
             width={24}
-            alt="user"
+            alt="calender"
             className="ml-2"
           />
-          {/* <FormControl>
-            <ReactDatePicker
+          <FormControl>
+            <DatePicker
               showTimeSelect={props.showTimeSelect ?? false}
               selected={field.value}
-              onChange={(date: Date) => field.onChange(date)}
+              onChange={(date) => field.onChange(date)}
               timeInputLabel="Time:"
               dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
               wrapperClassName="date-picker"
             />
-          </FormControl> */}
+          </FormControl>
         </div>
       );
     case FormFieldType.SELECT:
